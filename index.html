@@ -332,7 +332,30 @@
       </section>
 
     </div>
-
+    <footer>
+      <div class="visitor-count">
+          <p>Visitor count: <span id="visitor-count"></span></p>
+      </div>
+  
+      <script>
+          // Initialize visitor count from localStorage or set to 0 if not present
+          let visitorCount = parseInt(localStorage.getItem('visitorCount')) || 0;
+  
+          // Increment the count
+          visitorCount++;
+  
+          // Save the updated count to localStorage
+          localStorage.setItem('visitorCount', visitorCount);
+  
+          // Display the count on the page
+          document.addEventListener('DOMContentLoaded', () => {
+              const countElement = document.getElementById('visitor-count');
+              if (countElement) {
+                  countElement.textContent = visitorCount;
+              }
+          });
+      </script>
+  </footer>
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
